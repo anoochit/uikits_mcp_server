@@ -1,8 +1,0 @@
-[
-  {
-    "id": "button-primary",
-    "title": "Primary Button",
-    "description": "ปุ่มมาตรฐานของระบบ รองรับ icon และสไตล์แบน",
-    "path": "https://raw.githubusercontent.com/anoochit/uikits/refs/heads/master/lib/pages/01_start/startscreen01.dart"
-  }
-]
