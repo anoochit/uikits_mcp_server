@@ -3,7 +3,7 @@ import requests
 
 mcp = FastMCP("FlutterRepoServer")
 
-REPO_BASE_URL = "https://raw.githubusercontent.com/anoochit/uikits_mcp_server/main"
+REPO_BASE_URL = "https://raw.githubusercontent.com/anoochit/uikits_mcp_server/refs/heads/master"
 MANIFEST_URL = f"{REPO_BASE_URL}/templates_manifest.json"
 
 @mcp.tool()
