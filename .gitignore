@@ -1,0 +1,57 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+*.egg-info/
+.eggs/
+
+# Distribution / packaging
+.Python
+build/
+dist/
+wheels/
+*.egg
+*.whl
+
+# C extensions
+*.so
+*.lo
+*.la
+*.dll
+*.dylib
+
+# Editor backups and swap files
+*~
+*.bak
+*.swp
+.DS_Store
+.vscode/
+
+# Virtual environment
+.venv/
+env/
+venv/
+venv.bak/
+.mypy_cache/
+
+# IDE specific files
+.idea/
+.project
+.pydevproject
+
+# Logs
+*.log
+log/
+
+# OS generated files
+.DS_Store
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.bak
+*.swp
+*.swo
+
+# Other
+.python-version
