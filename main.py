@@ -1,10 +1,15 @@
 from fastmcp import FastMCP
 import requests
 
-mcp = FastMCP("FlutterRepoServer")
+mcp = FastMCP(
+    name="FlutterUIKitsTemplate",
+    instructions="Flutter UIKits Template is a FastMCP-powered template server that delivers pre-built Flutter UI kits, enabling rapid UI prototyping and standardized design systems for Flutter applications.",
+    version=0.2,
+)
 
 REPO_BASE_URL = "https://raw.githubusercontent.com/anoochit/uikits/refs/heads/master"
 MANIFEST_URL = f"{REPO_BASE_URL}/lib/pages/templates_manifest.json"
+
 
 @mcp.tool()
 def list_templates() -> str:
@@ -18,13 +23,14 @@ def list_templates() -> str:
         response = requests.get(MANIFEST_URL)
         response.raise_for_status()
         templates = response.json()
-        
+
         output = "📦 Available Flutter Templates:\n"
         for t in templates:
             output += f"- ID: {t['id']} | {t['title']}\n  Detail: {t['description']}\n"
         return output
     except Exception as e:
         return f"Error: Unable to load template list ({str(e)})"
+
 
 @mcp.tool()
 def get_template_code(template_id: str) -> str:
@@ -39,8 +45,8 @@ def get_template_code(template_id: str) -> str:
         # 1. Load manifest to find the template file path
         manifest_res = requests.get(MANIFEST_URL)
         templates = manifest_res.json()
-        target = next((t for t in templates if t['id'] == template_id), None)
-        
+        target = next((t for t in templates if t["id"] == template_id), None)
+
         if not target:
             return f"Template ID not found: {template_id}"
 
@@ -48,10 +54,11 @@ def get_template_code(template_id: str) -> str:
         file_url = f"{REPO_BASE_URL}/{target['path']}"
         code_res = requests.get(file_url)
         code_res.raise_for_status()
-        
+
         return f"--- Code for {target['title']} ---\n\n{code_res.text}"
     except Exception as e:
         return f"Error: Unable to retrieve template code ({str(e)})"
+
 
 if __name__ == "__main__":
     mcp.run()
