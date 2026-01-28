@@ -1,11 +1,7 @@
 from fastmcp import FastMCP
 import requests
 
-mcp = FastMCP(
-    name="FlutterUIKitsTemplate",
-    instructions="Flutter UIKits Template is a FastMCP-powered template server that delivers pre-built Flutter UI kits, enabling rapid UI prototyping and standardized design systems for Flutter applications.",
-    version=0.2,
-)
+mcp = FastMCP("FlutterUIKitsTemplate")
 
 REPO_BASE_URL = "https://raw.githubusercontent.com/anoochit/uikits/refs/heads/master"
 MANIFEST_URL = f"{REPO_BASE_URL}/lib/pages/templates_manifest.json"
